@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einladung zum Date</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        let noClickCount = 0;
+
+        function showLoveMessage() {
+            var overlay = document.createElement('div');
+            overlay.className = 'overlay';
+            
+            var popup = document.createElement('div');
+            popup.className = 'popup';
+            
+            var newGif = document.createElement('img');
+            newGif.src = 'cute-bears-love.gif'; // Pfad zum neuen GIF
+            newGif.alt = 'Ein weiteres süßes GIF';
+            newGif.style.width = '300px';
+            newGif.style.height = 'auto';
+            
+            var loveMessage = document.createElement('p');
+            loveMessage.textContent = 'Yayyyy, ich freue mich sooooo sehhrrrrr❤️!!!';
+            loveMessage.style.color = 'black';
+            loveMessage.style.fontSize = '20px';
+
+            var continueButton = document.createElement('button');
+            continueButton.textContent = 'Weiter';
+            continueButton.onclick = function() {
+                window.location.href = 'weiter.html';
+            };
+            continueButton.style.backgroundColor = '#ff1493';
+            continueButton.style.color = 'white';
+            continueButton.style.border = 'none';
+            continueButton.style.padding = '10px 20px';
+            continueButton.style.margin = '10px';
+            continueButton.style.borderRadius = '5px';
+            continueButton.style.cursor = 'pointer';
+            
+            popup.appendChild(newGif);
+            popup.appendChild(loveMessage);
+            popup.appendChild(continueButton);
+            overlay.appendChild(popup);
+            document.body.appendChild(overlay);
+        }
+
+        function showNoLoveMessage() {
+            var overlay = document.createElement('div');
+            overlay.className = 'overlay';
+            
+            var popup = document.createElement('div');
+            popup.className = 'popup';
+            
+            var newGif = document.createElement('img');
+            newGif.src = 'f35d33a6290e7d94b24347643cd39efa.gif'; // Pfad zum neuen GIF
+            newGif.alt = 'Ein weiteres süßes GIF';
+            newGif.style.width = '300px';
+            newGif.style.height = 'auto';
+            
+            var noLoveMessage = document.createElement('p');
+            noLoveMessage.textContent = 'Liebst du mich etwa nicht?';
+            noLoveMessage.style.color = 'black';
+            noLoveMessage.style.fontSize = '20px';
+            
+            popup.appendChild(newGif);
+            popup.appendChild(noLoveMessage);
+            overlay.appendChild(popup);
+            document.body.appendChild(overlay);
+        }
+
+        function moveButton() {
+            var button = document.getElementById('noButton');
+            var container = document.querySelector('.container');
+            var containerWidth = container.clientWidth;
+            var containerHeight = container.clientHeight;
+            var buttonWidth = button.clientWidth;
+            var buttonHeight = button.clientHeight;
+
+            var newLeft = Math.random() * (containerWidth - buttonWidth);
+            var newTop = Math.random() * (containerHeight - buttonHeight);
+
+            button.style.position = 'absolute';
+            button.style.left = newLeft + 'px';
+            button.style.top = newTop + 'px';
+
+            noClickCount++;
+            if (noClickCount >= 5) {
+                showNoLoveMessage();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Hier fügst du das erste GIF ein -->
+        <img src="jumping-bear-hearts-no-png.gif" alt="Ein süßes GIF" style="width: 300px; height: auto;">
+        
+        <h1>First Dateeeee?❤️</h1>
+        <p>Heyyy Schatzzz, ich würde gerne mit dir unser erstes Date erneut erleben. Darf ich meine tolle Freundin nochmals ausführen und mich beim Billiard blamieren?</p>
+
+        <button onclick="showLoveMessage()">Ja</button>
+        <button id="noButton" onclick="moveButton()">Nein</button>
+    </div>
+</body>
+</html>

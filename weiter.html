@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freust du dich auch?</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        let noClickCount = 0;
+
+        function showKissMessage() {
+            var overlay = document.createElement('div');
+            overlay.className = 'overlay';
+            
+            var popup = document.createElement('div');
+            popup.className = 'popup';
+            
+            var newGif = document.createElement('img');
+            newGif.src = 'milk-and-mocha-milk-mocha.gif'; // Pfad zum neuen GIF
+            newGif.alt = 'Ein süßes GIF';
+            newGif.style.width = '300px';
+            newGif.style.height = 'auto';
+            
+            var kissMessage = document.createElement('p');
+            kissMessage.textContent = 'Dann küsse mich!';
+            kissMessage.style.color = 'black';
+            kissMessage.style.fontSize = '20px';
+
+            var doneButton = document.createElement('button');
+            doneButton.textContent = 'Erledigt';
+            doneButton.onclick = function() {
+                document.body.removeChild(overlay);
+                showAgainMessage();
+            };
+            doneButton.style.backgroundColor = '#ff1493';
+            doneButton.style.color = 'white';
+            doneButton.style.border = 'none';
+            doneButton.style.padding = '10px 20px';
+            doneButton.style.margin = '10px';
+            doneButton.style.borderRadius = '5px';
+            doneButton.style.cursor = 'pointer';
+            
+            popup.appendChild(newGif);
+            popup.appendChild(kissMessage);
+            popup.appendChild(doneButton);
+            overlay.appendChild(popup);
+            document.body.appendChild(overlay);
+        }
+
+        function showAgainMessage() {
+            var overlay = document.createElement('div');
+            overlay.className = 'overlay';
+            
+            var popup = document.createElement('div');
+            popup.className = 'popup';
+            
+            var newGif = document.createElement('img');
+            newGif.src = 'i-love-you-so-much.gif'; // Pfad zum neuen GIF
+            newGif.alt = 'Ein süßes GIF';
+            newGif.style.width = '300px';
+            newGif.style.height = 'auto';
+            
+            var againMessage = document.createElement('p');
+            againMessage.textContent = 'Nochmal!';
+            againMessage.style.color = 'black';
+            againMessage.style.fontSize = '20px';
+
+            var doneButton = document.createElement('button');
+            doneButton.textContent = 'Erledigt';
+            doneButton.onclick = function() {
+                window.location.href = 'erledigt.html';
+            };
+            doneButton.style.backgroundColor = '#ff1493';
+            doneButton.style.color = 'white';
+            doneButton.style.border = 'none';
+            doneButton.style.padding = '10px 20px';
+            doneButton.style.margin = '10px';
+            doneButton.style.borderRadius = '5px';
+            doneButton.style.cursor = 'pointer';
+            
+            popup.appendChild(newGif);
+            popup.appendChild(againMessage);
+            popup.appendChild(doneButton);
+            overlay.appendChild(popup);
+            document.body.appendChild(overlay);
+        }
+
+        function showNoLoveMessage() {
+            var overlay = document.createElement('div');
+            overlay.className = 'overlay';
+            
+            var popup = document.createElement('div');
+            popup.className = 'popup';
+            
+            var newGif = document.createElement('img');
+            newGif.src = 'f35d33a6290e7d94b24347643cd39efa.gif'; // Pfad zum neuen GIF
+            newGif.alt = 'Ein weiteres süßes GIF';
+            newGif.style.width = '300px';
+            newGif.style.height = 'auto';
+            
+            var noLoveMessage = document.createElement('p');
+            noLoveMessage.textContent = 'Liebst du mich etwa nicht?';
+            noLoveMessage.style.color = 'black';
+            noLoveMessage.style.fontSize = '20px';
+            
+            popup.appendChild(newGif);
+            popup.appendChild(noLoveMessage);
+            overlay.appendChild(popup);
+            document.body.appendChild(overlay);
+        }
+
+        function moveButton() {
+            var button = document.getElementById('noButton');
+            var container = document.querySelector('.container');
+            var containerWidth = container.clientWidth;
+            var containerHeight = container.clientHeight;
+            var buttonWidth = button.clientWidth;
+            var buttonHeight = button.clientHeight;
+
+            var newLeft = Math.random() * (containerWidth - buttonWidth);
+            var newTop = Math.random() * (containerHeight - buttonHeight);
+
+            button.style.position = 'absolute';
+            button.style.left = newLeft + 'px';
+            button.style.top = newTop + 'px';
+
+            noClickCount++;
+            if (noClickCount >= 5) {
+                showNoLoveMessage();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Hier fügst du das GIF ein -->
+        <img src="dudu-cute.gif" alt="Ein süßes GIF" style="width: 300px; height: auto;">
+        
+        <h1>Freust du dich auch so sehr wie ich?❤️</h1>
+        <p>Ich kann es kaum erwarten, unser erstes Date erneut zu erleben!</p>
+
+        <button onclick="showKissMessage()">Ja</button>
+        <button id="noButton" onclick="moveButton()">Nein</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ff69b4; /* Helleres Pink als Hintergrundfarbe */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 40px; /* Mehr Padding für den Inhalt */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative; /* Für die Überlagerung */
+    width: 500px; /* Breiterer Container */
+    height: auto; /* Automatische Höhe für den Container */
+}
+
+h1 {
+    color: black; /* Schwarze Farbe für die Überschrift */
+}
+
+p {
+    color: black; /* Schwarze Farbe für den Text */
+}
+
+button {
+    background-color: #ff1493; /* Tiefes Pink für die Buttons */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative; /* Für das Verschieben des Nein-Buttons */
+}
+
+button:hover {
+    background-color: #c71585; /* Dunkleres Pink beim Hover */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dunkler Hintergrund mit Transparenz */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Überlagerung */
+}
+
+.popup {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid gray; /* Grauer Rand */
+    text-align: center;
+    position: relative; /* Für das zweite Popup */
+    z-index: 2000; /* Überlagerung für das zweite Popup */
+}
